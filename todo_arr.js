@@ -45,21 +45,21 @@ const list = [
 
     function showList() {
 
-        console.log("To Do:")
+        console.log(STATUS.To_Do + ':')
         list.forEach(function(item){
             if (item.status === STATUS.To_Do) {
                 console.log(item.task);
             }
         });
 
-        console.log("In Progress:")
+        console.log(STATUS.In_Progress + ':')
         list.forEach(function(item){
             if (item.status === STATUS.In_Progress) {
                 console.log(item.task);
             }
         });
 
-        console.log("Done:")
+        console.log(STATUS.Done + ':')
         list.forEach(function(item){
             if (item.status === STATUS.Done) {
                 console.log(item.task);
