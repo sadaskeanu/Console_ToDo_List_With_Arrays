@@ -20,7 +20,7 @@ const list = [
     }
 
     function deleteTask (task) {
-        list.find(function(item,index) {
+        list.forEach(function(item,index) {
             if (item.task === task) {
                 list.splice(index,1);
             }
@@ -28,7 +28,7 @@ const list = [
     }
   
     function changeStatus(task, status){
-        list.find(function(item){
+        list.forEach(function(item){
             if (item.task === task) {
                 item.status = status;
             }
@@ -36,7 +36,7 @@ const list = [
     }
 
     function changePriority(task, priority){
-        list.find(function(item){
+        list.forEach(function(item){
             if (item.task === task) {
                 item.priority = priority;
             }
@@ -70,6 +70,8 @@ const list = [
     
     addTask ("homework");
     console.log(list);
+    addTask ("homework555");
+    console.log(list);
     changeStatus ("homework", "Done");
     console.log(list);
     changePriority ("homework", "high");
@@ -77,3 +79,4 @@ const list = [
     deleteTask("homework");
     console.log(list);
     showList();
+    
