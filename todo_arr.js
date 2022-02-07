@@ -15,52 +15,45 @@ const list = [
     Low: "low",
     }
     
-    function addTask (task) {
-    list.push({task, status: STATUS.To_Do, priority: PRIORITY.Low});
+    function addTask (task, status, priority) {
+    list.push({task, status, priority});
     }
 
     function deleteTask (task) {
-        list.forEach(function(item,index) {
+        list.find(function(item,index) {
             if (item.task === task) {
                 list.splice(index,1);
             }
         });
     }
   
-    function changeStatus(task, status){
-        list.forEach(function(item){
+    function changeStatusAndPrioity(task, status, priority){
+        list.find(function(item){
             if (item.task === task) {
                 item.status = status;
-            }
-        });
-    }
-
-    function changePriority(task, priority){
-        list.forEach(function(item){
-            if (item.task === task) {
                 item.priority = priority;
-            }
+            } 
         });
     }
 
     function showList() {
 
         console.log(STATUS.To_Do + ':')
-        list.forEach(function(item){
+        list.find(function(item){
             if (item.status === STATUS.To_Do) {
                 console.log(item.task);
             }
         });
 
         console.log(STATUS.In_Progress + ':')
-        list.forEach(function(item){
+        list.find(function(item){
             if (item.status === STATUS.In_Progress) {
                 console.log(item.task);
             }
         });
 
         console.log(STATUS.Done + ':')
-        list.forEach(function(item){
+        list.find(function(item){
             if (item.status === STATUS.Done) {
                 console.log(item.task);
             }
@@ -68,15 +61,15 @@ const list = [
     }
            
     
-    addTask ("homework");
+
+
+    addTask ("sport", "To Do", "low");
     console.log(list);
-    addTask ("homework555");
+    deleteTask ("sport");
     console.log(list);
-    changeStatus ("homework", "Done");
+    changeStatusAndPrioity ("read book", STATUS.Done, PRIORITY.High);
     console.log(list);
-    changePriority ("homework", "high");
+    changeStatusAndPrioity ("walk dog", STATUS.Done, PRIORITY.Low);
     console.log(list);
-    deleteTask("homework");
-    console.log(list);
-    showList();
-    
+    addTask("coffee break", STATUS.To_Do, PRIORITY.Low);
+    showList()
